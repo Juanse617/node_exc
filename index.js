@@ -1,17 +1,13 @@
 const express = require('express');
 const colors = require('colors');
-const dotenv = require('dotenv').config();
+const config = require('./app/config')
+
 const servidor = express();
-const PORT = process.env.PORT;
+
+const port = process.env.port;
 
 servidor.get('/', (req, res)=> {
-    res.send('Hola');
+    res.send('Hola mundo');
 })
 
-servidor.get('/si', (req, res)=> {
-    res.send('Adios');
-})
-
-servidor.listen(PORT, () => {
-    console.log(`Esta conectado en la url http://localhost:${PORT}`.bgGreen)
-})
+servidor.listen(port, callback())
